@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+API_URL = "https://api.themoviedb.org/3/movie/popular?api_key=0e9363d08153bcdb6bd9f170e1770159"
+API_IMG = "https://api.themoviedb.org/3/movie/{movie_id}/images"
+API_SEARCH = "https://api.themoviedb.org/3/search/multi"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+// const [trending, setTrending] = useState([]);
 
-## Available Scripts
+// useEffect(() => {
+// getTrending();
+// }, []);
 
-In the project directory, you can run:
+// const getTrending = async () => {
+// try {
+// const api = await fetch(
+// `https://api.themoviedb.org/3/movie/popular?api_key=0e9363d08153bcdb6bd9f170e1770159`
+// );
+// const data = await api.json();
+// if (data.results && Array.isArray(data.results)) {
+// setTrending(data.results);
+// console.log(data.results);
+// } else {
+// console.log('Invalid data structure:', data);
+// }
+// } catch (error) {
+// console.log('Error fetching trending movies:', error);
+// }
+// };
 
-### `npm start`
+// return (
+// <>
+// <div>
+// <h2>Trending</h2>
+// <div>
+// {trending.map((result) => (
+// <Carousel key={result.id}
+// option={{
+  //             axis:'horizontal'
+  //           }}>
+// <img src={result.poster_path} alt={result.title} />
+// {/_ <p key={result.id}>{result.title}</p> _/}
+// </Carousel>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+// ))}
+// </div>
+// </div>
+// </>
+// );
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+const [hero, setHero] = useState([]);
+const ApiUrl = "https://api.themoviedb.org/3/movie/popular?api_key=0e9363d08153bcdb6bd9f170e1770159";
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+useEffect(() => {
+fetch(ApiUrl)
+.then(response => response.json())
+.then(data => {
+console.log(data)
+setHero(data.results);
+})
+}, []);
